@@ -89,13 +89,13 @@ def parse_AND(line):
 Returns vars from NAND line
 """
 def parse_NAND(line):
-	# ASSUMES SPACING!
-	# SAME FUNCTION AS parse_OR() and parse_XOR()
-	vars = line.split()
-	output = vars[0]
-	input1 = vars[2]
-	input2 = vars[4]
-	return output, input1, input2
+    # ASSUMES SPACING!
+    # SAME FUNCTION AS parse_OR() and parse_XOR()
+    vars = line.split()
+    output = vars[0]
+    input1 = vars[2]
+    input2 = vars[4]
+    return output, input1, input2
 
 """
 Returns vars from MAJ line
@@ -120,9 +120,9 @@ Implement a function that takes a number
 and adds a special prefix to it
 '''
 def get_var_name(counter):
-    return "var{}".format(counter)
+    return "var_{}".format(counter)
 
-NANDline = "{} := {} NAND {} \n"
+NANDline = "{} := {} NAND {}\n"
 
 """
 Takes an AND line and writes a series of NAND lines to file
@@ -207,13 +207,13 @@ usage: python NANDp2NAND.py "filename.nandp"
 writes "filename_converted.nand"
 """
 def main():
-	inname = sys.argv[1]
-	name,ext = os.path.splitext(inname)
-	with open(inname,'r') as infile:
-		prog = infile.readlines()
-	outfile = open(name+'_converted.nand','w')
-	NANDify(outfile,prog)
-	outfile.close()
+    inname = sys.argv[1]
+    name,ext = os.path.splitext(inname)
+    with open(inname,'r') as infile:
+        prog = infile.readlines()
+    outfile = open(name+'_converted.nand','w')
+    NANDify(outfile,prog)
+    outfile.close()
 
 if __name__ == "__main__":
     main()
