@@ -1,0 +1,10 @@
+var_0 := x_0 NAND x_1
+var_1 := x_0 NAND x_2
+var_2 := x_1 NAND x_2
+var_3 := var_2 NAND var_1
+var_4 := var_3 NAND var_3
+a := var_4 NAND var_0
+var_4 := a NAND x_1
+var_5 := a NAND var_4
+var_6 := x_1 NAND var_4
+y_0 := var_5 NAND var_6

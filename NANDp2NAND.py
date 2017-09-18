@@ -146,10 +146,10 @@ def write_XOR_as_NAND(f, line, counter):
     u = get_var_name(counter)
     v = get_var_name(counter + 1)
     w = get_var_name(counter + 2)
-    f.write(NANDline.format(u, lvars[1], lvars[2]))
-    f.write(NANDline.format(v, lvars[1], u))
-    f.write(NANDline.format(w, lvars[2], u))
-    f.write(NANDline.format(lvars[0], v, w))
+    f.write(make_NAND_statement(u, lvars[1], lvars[2]) + "\n")
+    f.write(make_NAND_statement(v, lvars[1], u) + "\n")
+    f.write(make_NAND_statement(w, lvars[2], u) + "\n")
+    f.write(make_NAND_statement(lvars[0], v, w) + "\n")
     return (counter + 2)
 
 """
@@ -176,12 +176,12 @@ def write_MAJ_as_NAND(f, line,counter):
     t = get_var_name(counter + 2)
     g = get_var_name(counter + 3)
     h = get_var_name(counter + 4)
-    f.write(NANDline.format(d, lvars[1], lvars[2]))
-    f.write(NANDline.format(e, lvars[1], lvars[3]))
-    f.write(NANDline.format(t, lvars[2], lvars[3]))
-    f.write(NANDline.format(g, t, e))
-    f.write(NANDline.format(h, g, g))
-    f.write(NANDline.format(lvars[0], h, d))
+    f.write(make_NAND_statement(d, lvars[1], lvars[2]) + "\n")
+    f.write(make_NAND_statement(e, lvars[1], lvars[3]) + "\n")
+    f.write(make_NAND_statement(t, lvars[2], lvars[3]) + "\n")
+    f.write(make_NAND_statement(g, t, e) + "\n")
+    f.write(make_NAND_statement(h, g, g) + "\n")
+    f.write(make_NAND_statement(lvars[0], h, d) + "\n")
     return counter + 4
 
 
